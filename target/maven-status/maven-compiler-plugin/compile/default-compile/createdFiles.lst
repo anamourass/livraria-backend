@@ -1,0 +1,9 @@
+com\livraria\config\CorsConfig.class
+com\livraria\LivrariaApplication.class
+com\livraria\enums\Categoria.class
+com\livraria\repository\LivroRepository.class
+com\livraria\controller\LivroController.class
+com\livraria\enums\Tamanho.class
+com\livraria\service\impl\LivroServiceImpl.class
+com\livraria\model\Livro.class
+com\livraria\service\LivroService.class

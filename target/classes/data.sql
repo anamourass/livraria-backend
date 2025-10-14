@@ -1,0 +1,22 @@
+-- Dados iniciais para teste da API - 20 livros
+INSERT INTO livro (titulo, autor, texto, categoria, tamanho) VALUES
+('Dom Casmurro', 'Machado de Assis', 'Um clássico da literatura brasileira sobre ciúme e desconfiança.', 'FICCAO', 'MEDIO'),
+('O Cortiço', 'Aluísio Azevedo', 'Uma obra naturalista sobre a vida urbana no Rio de Janeiro do século XIX.', 'DRAMA', 'GRANDE'),
+('O Senhor dos Anéis', 'J.R.R. Tolkien', 'Uma épica fantasia sobre a jornada para destruir o Um Anel e salvar a Terra-média.', 'FICCAO', 'GRANDE'),
+('Dracula', 'Bram Stoker', 'O clássico romance gótico sobre o famoso vampiro da Transilvânia.', 'TERROR', 'MEDIO'),
+('Senhora', 'José de Alencar', 'Uma história de amor e orgulho na sociedade carioca do século XIX.', 'ROMANCE', 'PEQUENO'),
+('Steve Jobs', 'Walter Isaacson', 'A biografia autorizada do cofundador da Apple.', 'BIOGRAFIA', 'GRANDE'),
+('1984', 'George Orwell', 'Uma distopia sobre totalitarismo e vigilância em uma sociedade futura.', 'FICCAO', 'MEDIO'),
+('O Exorcista', 'William Peter Blatty', 'Uma historia aterrorizante sobre possessão demoníaca em uma jovem.', 'TERROR', 'MEDIO'),
+('Romeu e Julieta', 'William Shakespeare', 'A tragédia romântica mais famosa da literatura mundial.', 'ROMANCE', 'PEQUENO'),
+('Einstein: Sua Vida e seu Universo', 'Walter Isaacson', 'A biografia definitiva do gênio da física moderna.', 'BIOGRAFIA', 'GRANDE'),
+('O Nome do Vento', 'Patrick Rothfuss', 'A história de Kvothe, um lendário herói e assassino de reis.', 'FICCAO', 'GRANDE'),
+('It: A Coisa', 'Stephen King', 'Uma criatura ancestral aterroriza a cidade de Derry há gerações.', 'TERROR', 'GRANDE'),
+('Orgulho e Preconceito', 'Jane Austen', 'A história de Elizabeth Bennet e Fitzwilliam Darcy na Inglaterra do século XIX.', 'ROMANCE', 'MEDIO'),
+('Hamlet', 'William Shakespeare', 'A tragédia do príncipe da Dinamarca e sua busca por vingança.', 'DRAMA', 'MEDIO'),
+('Nelson Mandela', 'Anthony Sampson', 'A biografia do líder sul-africano que lutou contra o apartheid.', 'BIOGRAFIA', 'MEDIO'),
+('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 'O primeiro livro da saga do jovem bruxo Harry Potter.', 'FICCAO', 'MEDIO'),
+('O Silêncio dos Inocentes', 'Thomas Harris', 'O thriller psicológico que apresentou Hannibal Lecter ao mundo.', 'TERROR', 'PEQUENO'),
+('Jane Eyre', 'Charlotte Brontë', 'A história de uma governanta órfã e seu amor pelo misterioso Mr. Rochester.', 'ROMANCE', 'GRANDE'),
+('A Vida de Pi', 'Yann Martel', 'A extraordinária jornada de sobrevivência de um jovem no oceano Pacífico.', 'FICCAO', 'PEQUENO'),
+('Morte e Vida Severina', 'João Cabral de Melo Neto', 'Um auto de natal pernambucano sobre a migração e a pobreza.', 'DRAMA', 'PEQUENO');
