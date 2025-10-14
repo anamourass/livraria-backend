@@ -22,7 +22,7 @@ COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
 # Use a smaller base image for the runtime
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jre-alpine
 
 # Create a non-root user
 RUN addgroup --system spring && adduser --system spring --ingroup spring
