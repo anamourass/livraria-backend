@@ -1,50 +1,55 @@
-# Use OpenJDK 17 as base image
-FROM openjdk:17-jdk-slim
+# =========================
+# Etapa de build (compilação com Maven)
+# =========================
+FROM eclipse-temurin:17-jdk-jammy AS build
 
-# Set working directory
+# Define diretório de trabalho
 WORKDIR /app
 
-# Copy Maven configuration files
-COPY pom.xml .
+# Copia arquivos de configuração do Maven
+COPY pom.xml ./
 COPY .mvn .mvn
 COPY mvnw .
 
-# Make mvnw executable
+# Dá permissão de execução para o Maven wrapper
 RUN chmod +x mvnw
 
-# Download dependencies (for better caching)
+# Baixa dependências (para aproveitar cache)
 RUN ./mvnw dependency:resolve
 
-# Copy source code
+# Copia o código-fonte
 COPY src ./src
 
-# Build the application
+# Compila e empacota a aplicação (sem rodar testes)
 RUN ./mvnw clean package -DskipTests
 
-# Use a smaller base image for the runtime
-FROM openjdk:17-jre-alpine
 
-# Create a non-root user
+# =========================
+# Etapa de runtime (execução)
+# =========================
+FROM eclipse-temurin:17-jre-jammy
+
+# Cria um usuário não-root para segurança
 RUN addgroup --system spring && adduser --system spring --ingroup spring
 
-# Set working directory
+# Define diretório de trabalho
 WORKDIR /app
 
-# Copy the jar file from the build stage
-COPY --from=0 /app/target/*.jar app.jar
+# Copia o jar gerado na etapa anterior
+COPY --from=build /app/target/*.jar app.jar
 
-# Change ownership of the app directory
+# Define permissões
 RUN chown -R spring:spring /app
 
-# Switch to non-root user
+# Troca para o usuário não-root
 USER spring
 
-# Expose port
+# Expõe a porta do app
 EXPOSE 8080
 
-# Health check
+# Health check (Render ignora, mas é bom ter localmente)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 \
   CMD curl -f http://localhost:8080/actuator/health || exit 1
 
-# Run the application
+# Comando de execução da aplicação
 ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=prod"]
